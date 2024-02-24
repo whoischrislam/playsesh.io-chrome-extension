@@ -1,0 +1,93 @@
+/* Box sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* CSS variables */
+
+/* Colors
+    light green: #8AEA92
+    dark green: #25D033
+
+*/
+:root {
+    --primary-color: #25D033;
+    --light-primary-color: #8AEA92;
+    --background-color: #141414;
+    --content-background-color: #E9ECEC;
+    --header-font: "Roboto", sans-serif;
+    --padding: 1rem 1rem;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+/* Basic CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+}
+
+p, a, li {
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    /* border: 1px solid green; */
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--content-background-color);
+}
+
+header {
+    /* border: 1px solid red; */
+    color: var(--white);
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    padding: var(--padding);
+}
+
+main {
+    /* border: 1px solid blue; */
+    padding: var(--padding);
+}
+
+form {
+    /* border: 1px solid purple; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input {
+    border: 1px solid rgba(0, 0, 0, 0.288);
+    padding: 0.5rem;
+    border-radius: 0.2em;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.2em;
+    background-color: var(--primary-color);
+    color: var(--white);
+    cursor: pointer;
+}
