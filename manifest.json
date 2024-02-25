@@ -3,6 +3,9 @@
     "version": "0.1",
     "description": "Playsesh.io is the easiest platform for players to find games to play!",
     "manifest_version": 3,
-    "permissions": ["tabs", "activeTab"]
+    "permissions": ["tabs", "activeTab"],
+    "action": {
+        "default_popup": "index.html"
+    }
     
 }

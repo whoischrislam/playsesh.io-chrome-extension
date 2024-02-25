@@ -51,7 +51,7 @@ p, a, li {
 body {
     /* border: 1px solid green; */
     height: 100vh;
-    width: 100vw;
+    min-width: 20rem;
     background-color: var(--content-background-color);
 }
 
@@ -90,4 +90,9 @@ button {
     background-color: var(--primary-color);
     color: var(--white);
     cursor: pointer;
+}
+
+#gameList {
+    display: flex;
+    flex-direction: column;
 }
