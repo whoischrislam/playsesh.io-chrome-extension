@@ -3,11 +3,13 @@ const addTabBtn = document.getElementById("addTabBtn");
 // const addLinkInput = document.getElementById("addLinkInput");
 const addLinkBtn = document.getElementById("addLinkBtn");
 let gameLinks = [];
+// localStorage.setItem("gameLinks", JSON.stringify(gameLinks));
 const gameList = document.getElementById("gameList");
 let isGameListEmpty;
 
 console.log(`ON LOAD gameLinks array: ${gameLinks}`);
 
+// Check local storage for game links
 if (localStorage.getItem("gameLinks")) {
     isGameListEmpty = false;
     console.log("Local storage has game links");
@@ -19,8 +21,11 @@ if (localStorage.getItem("gameLinks")) {
 } else {
     isGameListEmpty = true;
     console.log("Local storage has no game links");
-    let emptyState = document.createElement("p");
-    emptyState.textContent = "No games on your list yet";
+    const emptyState = document.createElement("div");
+    emptyState.id = "emptyState";
+    const emptyStateText = document.createElement("p");
+    emptyStateText.textContent = "You have no links yet. Add some!";
+    emptyState.appendChild(emptyStateText);
     gameList.appendChild(emptyState);
     console.log(`gameLinks array: ${gameLinks}`);
 }
@@ -57,9 +62,38 @@ function renderLink(link) {
         gameList.innerHTML = "";
         isGameListEmpty = false;
     }
+    const card = document.createElement("div");
+    card.classList.add("card");
     const linkString = document.createElement("a");
     linkString.textContent = link;
     linkString.href = link;
     linkString.target = "_blank";
-    gameList.appendChild(linkString);
+    linkString.classList.add("link");
+    const deleteLink = document.createElement("a");
+    deleteLink.textContent = "Remove";
+    deleteLink.cursor = "pointer";
+    deleteLink.classList.add("deleteLink");
+    deleteLink.addEventListener("click", removeLink);
+    card.appendChild(linkString);
+    card.appendChild(deleteLink);
+    gameList.appendChild(card);
+}
+
+function removeLink() {
+    const linktoRemove = this.parentElement;
+    linktoRemove.remove();
+    gameLinks.splice(gameLinks.indexOf(linktoRemove), 1);
+    localStorage.setItem("gameLinks", JSON.stringify(gameLinks));
+    if(gameLinks.length === 0) {
+        localStorage.removeItem("gameLinks");
+        isGameListEmpty = true;
+        console.log("Local storage is empty again.");
+        const emptyState = document.createElement("div");
+        emptyState.id = "emptyState";
+        const emptyStateText = document.createElement("p");
+        emptyStateText.textContent = "You have no links yet. Add some!";
+        emptyState.appendChild(emptyStateText);
+        gameList.appendChild(emptyState);
+        console.log(`gameLinks array: ${gameLinks}`);
+    }
 }

@@ -19,6 +19,7 @@
     --padding: 1rem 1rem;
     --white: #ffffff;
     --black: #000000;
+    --margin: 0 0 1rem 0;
 }
 
 /* Basic CSS Reset */
@@ -34,7 +35,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, hr {
     margin: 0;
     padding: 0;
 }
@@ -46,6 +47,18 @@ h1, h2, h3, h4, h5, h6 {
 
 p, a, li {
     font-family: "Arial", sans-serif;
+    margin: 0 0 0.5rem 0;
+}
+
+a {
+    display: inline-block;
+    max-width: 100%;
+    width: fit-content;
+    overflow-wrap: break-word;
+}
+
+hr {
+    margin: var(--margin);
 }
 
 body {
@@ -55,8 +68,11 @@ body {
     background-color: var(--content-background-color);
 }
 
+body h2 {
+    margin: var(--margin);
+}
+
 header {
-    /* border: 1px solid red; */
     color: var(--white);
     background-color: var(--background-color);
     display: flex;
@@ -65,34 +81,83 @@ header {
 }
 
 main {
-    /* border: 1px solid blue; */
     padding: var(--padding);
 }
 
-form {
-    /* border: 1px solid purple; */
+/* form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-}
+} */
 
-input {
+/* input {
     border: 1px solid rgba(0, 0, 0, 0.288);
     padding: 0.5rem;
     border-radius: 0.2em;
-}
+} */
 
 button {
     width: 100%;
     border: none;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     border-radius: 0.2em;
     background-color: var(--primary-color);
     color: var(--white);
     cursor: pointer;
+    margin: var(--margin);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--light-primary-color);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: var(--padding);
+    margin: var(--margin);
+    border-radius: 0.2em;
+    box-shadow: 0 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.deleteLink {
+    margin: 0 0 0 0;
+    cursor: pointer;
+    color: #FD96A9;
+}
+
+.deleteLink:hover {
+    font-weight: bold;
+}
+
+.link {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 #gameList {
     display: flex;
     flex-direction: column;
+}
+
+#emptyState {
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: var(--padding);
+    border: 1px dashed gray;
+    border-radius: 0.2em;
+}
+
+#emptyState p {
+    margin: 0;
+    color: gray;
 }
