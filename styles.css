@@ -107,6 +107,7 @@ button {
     margin: var(--margin);
     text-transform: uppercase;
     font-weight: bold;
+    box-shadow: 0 0.1rem 0.5rem 0.1rem rgba(37, 208, 51, 0.2);
 }
 
 button:hover {
@@ -120,7 +121,7 @@ button:hover {
     padding: var(--padding);
     margin: var(--margin);
     border-radius: 0.2em;
-    box-shadow: 0 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
 }
 
 .deleteLink {
